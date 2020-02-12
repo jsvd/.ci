@@ -25,4 +25,4 @@ chmod 0600 ~/.gem/credentials
 jgem push *.gem
 
 # time to create and push a new tag
-curl -H "Authorization: token ${GITHUB_TOKEN}" -X POST -d "{ \"ref\": \"refs/tags/$(cat GEMSPEC_VERSION)\", \"sha\": \"$(git rev-parse HEAD)\" }" --header "Content-Type:application/json" "https://api.github.com/repos/$(git config --get travis.slug)/git/refs"
+curl -H "Authorization: token ${GITHUB_TOKEN}" -X POST -d "{ \"ref\": \"refs/tags/$NEW_VERSION\", \"sha\": \"$(git rev-parse HEAD)\" }" --header "Content-Type:application/json" "https://api.github.com/repos/$(git config --get travis.slug)/git/refs"
